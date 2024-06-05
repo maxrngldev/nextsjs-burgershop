@@ -1,0 +1,9 @@
+services:
+  next-app:
+    container_name: burger-shop
+    build: .
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    ports:
+      - 3000:3000
