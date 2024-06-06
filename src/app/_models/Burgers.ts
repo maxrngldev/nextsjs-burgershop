@@ -1,7 +1,9 @@
 export interface Burger {
-  id: number;
-  img: string;
-  title: string;
+  id: string;
+  name: string;
   price: number;
+  image: string;
   description: string;
+  calorie: number;
+  slug: string;
 }

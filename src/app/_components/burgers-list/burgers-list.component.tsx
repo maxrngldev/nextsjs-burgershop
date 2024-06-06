@@ -1,6 +1,6 @@
 import { Burger } from '@/app/_models/Burgers';
+import { BurgerList, BurgerListTitle } from './burger-list.styles';
 import { BurgerCard } from '../burger-card/burger-card.component';
-import styles from './burgers-list.module.css';
 
 export interface BurgersListProps {
   burgers: Burger[];
@@ -9,19 +9,19 @@ export interface BurgersListProps {
 export function BurgersList({ burgers }: BurgersListProps) {
   return (
     <>
-      <h1 className={styles['burger-list__title']}>
+      <BurgerListTitle>
         🍔
         {burgers.length
           ? 'Look at our delicious menu!'
           : 'We are still cooking, please come back later'}
         🥤
-      </h1>
+      </BurgerListTitle>
       <hr />
-      <div className={styles['burgers-list']}>
+      <BurgerList>
         {burgers.map((burger) => (
           <BurgerCard key={burger.id} burger={burger} />
         ))}
-      </div>
+      </BurgerList>
     </>
   );
 }

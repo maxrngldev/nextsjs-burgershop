@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Navbar } from './_components/navbar/navbar.component';
+import StyledComponentsRegistry from '@/lib/registry';
+
 import './global.css';
 
 export const metadata: Metadata = {
@@ -15,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <Navbar />
-        {children}
+        <StyledComponentsRegistry>
+          <Navbar />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

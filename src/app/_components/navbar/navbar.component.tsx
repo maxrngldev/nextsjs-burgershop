@@ -1,38 +1,36 @@
-import Link from 'next/link';
-import styles from './navbar.module.css';
+import {
+  NavbarCartBtn,
+  NavbarCartBtnIcon,
+  NavbarCartTotalItems,
+  NavbarContainer,
+  NavbarLogoContainer,
+  NavbarLogoIcon,
+  NavbarLogoTitle,
+} from './navbar.styles';
 
 export function NavbarLogo() {
   return (
-    <div className={styles['navbar__logo']}>
-      <Link href='/' className={styles['navbar__logo-title']}>
-        Burger Shop
-      </Link>
-
-      <span className={styles['navbar__logo-icon']} role='img'>
-        🍔
-      </span>
-    </div>
+    <NavbarLogoContainer>
+      <NavbarLogoTitle href='/'>Burger Shop</NavbarLogoTitle>
+      <NavbarLogoIcon role='img'>🍔</NavbarLogoIcon>
+    </NavbarLogoContainer>
   );
 }
 
 export function CartButton() {
   return (
-    <Link href='/cart' role='button' className={styles['navbar__cart-btn']}>
-      <span className={styles['navbar__cart-btn-icon']} role='img'>
-        🛒
-      </span>
-      <span className={styles['navbar__cart-total-items']} role='banner'>
-        +9
-      </span>
-    </Link>
+    <NavbarCartBtn href='/cart' role='button'>
+      <NavbarCartBtnIcon role='img'>🛒</NavbarCartBtnIcon>
+      <NavbarCartTotalItems role='banner'>+9</NavbarCartTotalItems>
+    </NavbarCartBtn>
   );
 }
 
 export function Navbar() {
   return (
-    <nav className={styles.navbar}>
+    <NavbarContainer>
       <NavbarLogo />
       <CartButton />
-    </nav>
+    </NavbarContainer>
   );
 }
