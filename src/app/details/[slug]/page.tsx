@@ -1,6 +1,6 @@
 import { Burger } from '@/models/Burgers';
 import { BurgerDetails } from '@/components/burger-details/burger-details.component';
-import styles from './page.module.css';
+import { PageContainer } from './page.styles';
 
 const tempData: Burger[] = [
   {
@@ -73,8 +73,8 @@ export default function DetailsPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className={styles['page-container']}>
+    <PageContainer>
       <BurgerDetails burger={burger} />
-    </main>
+    </PageContainer>
   );
 }
