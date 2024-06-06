@@ -14,7 +14,7 @@ export function BurgersList({ burgers }: BurgersListProps) {
         {burgers.length
           ? 'Look at our delicious menu!'
           : 'We are still cooking, please come back later'}
-        🍟
+        🥤
       </h1>
       <hr />
       <div className={styles['burgers-list']}>

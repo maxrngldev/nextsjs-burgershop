@@ -5,15 +5,17 @@ import { Burger } from '@/app/_models/Burgers';
 import testImg from './BEWD.jpg';
 import styles from './burger-card.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface BurgerCardProps {
   burger: Burger;
 }
 
 export function BurgerCard({
-  burger: { title, img, price, description },
+  burger: { id, title, img, price, description },
 }: BurgerCardProps) {
   const [showMore, setShowMore] = useState(false);
+  const router = useRouter();
 
   const aboveWordLimit = description.split(' ').length > 8;
   const collapsedDescription = `${description
@@ -21,8 +23,16 @@ export function BurgerCard({
     .splice(0, 9)
     .join(' ')}...`;
 
+  function handleExpandDescription(event: React.MouseEvent<HTMLSpanElement>) {
+    event.stopPropagation();
+    setShowMore((value) => !value);
+  }
+
   return (
-    <div className={styles['burger-card']}>
+    <div
+      className={styles['burger-card']}
+      onClick={() => router.push(`/details/${id}`)}
+    >
       <Image
         className={styles['burger-card__img']}
         src={testImg}
@@ -41,7 +51,7 @@ export function BurgerCard({
 
         {aboveWordLimit && (
           <span
-            onClick={() => setShowMore((value) => !value)}
+            onClick={handleExpandDescription}
             className={styles['burger-card__show-more']}
           >
             {!showMore ? ' Show more' : ' Show less'}
