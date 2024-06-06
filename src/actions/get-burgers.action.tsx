@@ -1,6 +1,6 @@
 'use server';
 
-import { Burger } from '../_models/Burgers';
+import { Burger } from '../../models/Burgers';
 
 export async function getBurgers(): Promise<Burger[]> {
   try {

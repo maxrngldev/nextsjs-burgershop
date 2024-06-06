@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import { Burger } from '@/app/_models/Burgers';
+import { Burger } from '@/models/Burgers';
 import {
   BurgerCardContainer,
   BurgerCardCollapseDescription,

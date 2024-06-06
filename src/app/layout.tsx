@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { Navbar } from './_components/navbar/navbar.component';
 import StyledComponentsRegistry from '@/lib/registry';
+import { Navbar } from '@/components/navbar/navbar.component';
 
 import './global.css';
 

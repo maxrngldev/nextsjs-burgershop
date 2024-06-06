@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Burger } from '@/app/_models/Burgers';
+import { Burger } from '@/models/Burgers';
 import styles from './burger-details.module.css';
 
 interface BurgerDetailsProps {

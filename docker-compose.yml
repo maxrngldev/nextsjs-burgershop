@@ -2,6 +2,7 @@ services:
   next-app:
     container_name: burger-shop
     build: .
+    restart: always
     volumes:
       - ./src:/app/src
       - ./public:/app/public

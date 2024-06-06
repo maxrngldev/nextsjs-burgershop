@@ -1,5 +1,5 @@
-import { BurgerDetails } from '@/app/_components/burger-details/burger-details.component';
-import { Burger } from '@/app/_models/Burgers';
+import { Burger } from '@/models/Burgers';
+import { BurgerDetails } from '@/components/burger-details/burger-details.component';
 import styles from './page.module.css';
 
 const tempData: Burger[] = [

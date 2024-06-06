@@ -1,4 +1,4 @@
-import { Burger } from '@/app/_models/Burgers';
+import { Burger } from '@/models/Burgers';
 import { BurgerList, BurgerListTitle } from './burger-list.styles';
 import { BurgerCard } from '../burger-card/burger-card.component';
 
