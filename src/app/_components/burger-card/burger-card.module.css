@@ -1,0 +1,47 @@
+.burger-card {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+
+  height: fit-content;
+  border: 0.1rem solid var(--color-brown);
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background-color: var(--color-brown);
+  position: relative;
+  padding: 0.8rem;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+
+  transition: all 0.3s;
+}
+
+.burger-card:hover {
+  box-shadow: 0 2.4rem 2.4rem rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.burger-card__img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.burger-card__title {
+  font-size: 2.4rem;
+}
+
+.burger-card__price {
+  font-size: 1.8rem;
+}
+
+.burger-card__description {
+  font-size: 1.6rem;
+}
+
+.burger-card__show-more {
+  cursor: pointer;
+  color: var(--color-text-dark);
+}
+
+.burger-card__show-more:hover {
+  color: var(--color-primary-light);
+}

@@ -1,0 +1,13 @@
+.burger-list__title {
+  font-size: 2.4rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.burgers-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+
+  padding: 1rem;
+}
