@@ -9,12 +9,16 @@ import {
   CartListItemTotal,
 } from './cart-list-item.styles';
 import { Button } from '../ui/button/button.component';
+import { useBurgersStore } from '@/providers/burgers-store.provider';
 
 interface CartListItemProps {
   cartItem: CartItem;
 }
 
 export function CartListItem({ cartItem }: CartListItemProps) {
+  const removeBurgerFromCart = useBurgersStore(
+    (state) => state.removeBurgerFromCart
+  );
   return (
     <CartListItemContainer>
       <CartListItemImg
@@ -37,7 +41,12 @@ export function CartListItem({ cartItem }: CartListItemProps) {
       </CartListItemTotal>
 
       <CartListItemActions>
-        <Button $transparent $animated $iconOnly>
+        <Button
+          $transparent
+          $animated
+          $iconOnly
+          onClick={() => removeBurgerFromCart(cartItem)}
+        >
           🗑️
         </Button>
       </CartListItemActions>

@@ -1,8 +1,8 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { ButtonContainer } from './button.styles';
 
 interface ButtonProps {
-  children: string | ReactElement;
+  children: ReactNode;
   onClick?: () => void;
   $primary?: boolean;
   $secondary?: boolean;

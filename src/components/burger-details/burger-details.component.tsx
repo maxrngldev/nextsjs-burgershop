@@ -1,6 +1,5 @@
 'use client';
 
-import { Burger } from '@/models/Burgers';
 import {
   BurgerDescription,
   BurgerDescriptionContainer,
@@ -14,35 +13,45 @@ import {
 } from './burger-details.styles';
 import { Button } from '../ui/button/button.component';
 import { useRouter } from 'next/navigation';
+import { useBurgersStore } from '@/providers/burgers-store.provider';
 
 interface BurgerDetailsProps {
-  burger: Burger;
+  burgerSlug: string;
 }
-export function BurgerDetails({
-  burger: { name, price, image, description, calorie },
-}: BurgerDetailsProps) {
+
+export function BurgerDetails({ burgerSlug }: BurgerDetailsProps) {
+  const burgers = useBurgersStore((state) => state.burgers);
+  const addBurgerToCart = useBurgersStore((state) => state.addBurgerToCart);
   const router = useRouter();
+
+  const burger = burgers.find((burger) => burger.slug === burgerSlug);
+
+  if (!burger) {
+    throw new Error('No burger found!');
+  }
 
   return (
     <BurgerDetailsContainer>
       <BurgerDetailsImg
-        src={image}
+        src={burger.image}
         alt={`Image for ${name}`}
         width={450}
         height={450}
       />
 
       <BurgerHeaderContainer>
-        <BurgerName>{name}</BurgerName>
-        <BurgerNutritionalValue>Calories - {calorie}</BurgerNutritionalValue>
+        <BurgerName>{burger.name}</BurgerName>
+        <BurgerNutritionalValue>
+          Calories - {burger.calorie}
+        </BurgerNutritionalValue>
       </BurgerHeaderContainer>
 
-      <BurgerPrice>${price}</BurgerPrice>
+      <BurgerPrice>${burger.price}</BurgerPrice>
 
       <BurgerDescriptionContainer>
-        <BurgerDescription>{description}</BurgerDescription>
+        <BurgerDescription>{burger.description}</BurgerDescription>
         <BurgerDetailsCTAContainer>
-          <Button $primary $animated>
+          <Button $primary $animated onClick={() => addBurgerToCart(burger)}>
             Add to Cart
           </Button>
           <Button $secondary onClick={() => router.push('/')}>

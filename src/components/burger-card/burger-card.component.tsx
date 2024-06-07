@@ -2,11 +2,11 @@ import { useRouter } from 'next/navigation';
 import { Burger } from '@/models/Burgers';
 import {
   BurgerCardContainer,
-  BurgerCardCollapseDescription,
   BurgerCardImg,
   BurgerCardPrice,
   BurgerCardTitle,
   BurgerCardHeader,
+  BurgerCardDescription,
 } from './burger-card.styles';
 import { Button } from '../ui/button/button.component';
 
@@ -33,7 +33,7 @@ export function BurgerCard({
         </BurgerCardPrice>
       </BurgerCardHeader>
 
-      <BurgerCardCollapseDescription wordLimit={9} text={description} />
+      <BurgerCardDescription>{description}</BurgerCardDescription>
 
       <Button $primary $expand onClick={() => router.push(`/details/${slug}`)}>
         View more

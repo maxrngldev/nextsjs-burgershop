@@ -3,6 +3,7 @@ import StyledComponentsRegistry from '@/lib/registry';
 import { Navbar } from '@/components/navbar/navbar.component';
 
 import './global.css';
+import { BurgersStoreProvider } from '@/providers/burgers-store.provider';
 
 export const metadata: Metadata = {
   title: 'Burger Shop',
@@ -18,8 +19,10 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <StyledComponentsRegistry>
-          <Navbar />
-          {children}
+          <BurgersStoreProvider>
+            <Navbar />
+            {children}
+          </BurgersStoreProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

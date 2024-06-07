@@ -1,30 +1,6 @@
-import {
-  NavbarCartBtn,
-  NavbarCartBtnIcon,
-  NavbarCartTotalItems,
-  NavbarContainer,
-  NavbarLogoContainer,
-  NavbarLogoIcon,
-  NavbarLogoTitle,
-} from './navbar.styles';
-
-export function NavbarLogo() {
-  return (
-    <NavbarLogoContainer>
-      <NavbarLogoTitle href='/'>Burger Shop</NavbarLogoTitle>
-      <NavbarLogoIcon role='img'>🍔</NavbarLogoIcon>
-    </NavbarLogoContainer>
-  );
-}
-
-export function CartButton() {
-  return (
-    <NavbarCartBtn href='/cart' role='button'>
-      <NavbarCartBtnIcon role='img'>🛒</NavbarCartBtnIcon>
-      <NavbarCartTotalItems role='banner'>+9</NavbarCartTotalItems>
-    </NavbarCartBtn>
-  );
-}
+import { NavbarContainer } from './navbar.styles';
+import { NavbarLogo } from './navbar-logo.component';
+import { CartButton } from './navbar-cart-button.component';
 
 export function Navbar() {
   return (
