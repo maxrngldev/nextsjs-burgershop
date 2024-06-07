@@ -14,35 +14,38 @@ import {
 } from './burger-details.styles';
 import { Button } from '../ui/button/button.component';
 import { useRouter } from 'next/navigation';
+import { useBurgersStore } from '@/stores/burgers.store';
 
 interface BurgerDetailsProps {
   burger: Burger;
 }
-export function BurgerDetails({
-  burger: { name, price, image, description, calorie },
-}: BurgerDetailsProps) {
+export function BurgerDetails({ burger }: BurgerDetailsProps) {
+  const addBurgerToCart = useBurgersStore((state) => state.addBurgerToCart);
+
   const router = useRouter();
 
   return (
     <BurgerDetailsContainer>
       <BurgerDetailsImg
-        src={image}
+        src={burger.image}
         alt={`Image for ${name}`}
         width={450}
         height={450}
       />
 
       <BurgerHeaderContainer>
-        <BurgerName>{name}</BurgerName>
-        <BurgerNutritionalValue>Calories - {calorie}</BurgerNutritionalValue>
+        <BurgerName>{burger.name}</BurgerName>
+        <BurgerNutritionalValue>
+          Calories - {burger.calorie}
+        </BurgerNutritionalValue>
       </BurgerHeaderContainer>
 
-      <BurgerPrice>${price}</BurgerPrice>
+      <BurgerPrice>${burger.price}</BurgerPrice>
 
       <BurgerDescriptionContainer>
-        <BurgerDescription>{description}</BurgerDescription>
+        <BurgerDescription>{burger.description}</BurgerDescription>
         <BurgerDetailsCTAContainer>
-          <Button $primary $animated>
+          <Button $primary $animated onClick={() => addBurgerToCart(burger)}>
             Add to Cart
           </Button>
           <Button $secondary onClick={() => router.push('/')}>
