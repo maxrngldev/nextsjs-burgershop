@@ -2,43 +2,50 @@
 
 import styled, { css } from 'styled-components';
 
+interface ButtonContainerProps {
+  $primary?: boolean;
+  $secondary?: boolean;
+  $animated?: boolean;
+  $expand?: boolean;
+}
+
 function getButtonStyles({
   $primary,
   $animated,
-}: {
-  $primary?: boolean;
-  $animated?: boolean;
-}) {
-  if ($primary)
-    return css`
-      background-color: var(--color-primary);
-      color: var(--color-black);
-      box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+  $secondary,
+}: ButtonContainerProps) {
+  return css`
+    background-color: ${() => {
+      if ($primary) return 'var(--color-primary)';
+      else if ($secondary) return 'var(--color-secondary)';
+    }};
+    color: var(--color-black);
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
 
-      &:hover {
-        background-color: var(--color-primary-light);
-        ${$animated &&
-        `
+    &:hover,
+    &:active {
+      background-color: ${() => {
+        if ($primary) return 'var(--color-primary-light)';
+        else if ($secondary) return 'var(--color-secondary-light)';
+      }};
+    }
+
+    &:hover {
+      ${$animated &&
+      `
         box-shadow: 0 2.4rem 2.4rem rgba(0, 0, 0, 0.1);
         transform: translateY(-3px);
       `}
-      }
+    }
 
-      &:active {
-        background-color: var(--color-primary);
-        ${$animated &&
-        `
+    &:active {
+      ${$animated &&
+      `
         box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
         transform: translateY(2px);
       `}
-      }
-    `;
-}
-
-interface ButtonContainerProps {
-  $primary?: boolean;
-  $animated?: boolean;
-  $expand?: boolean;
+    }
+  `;
 }
 
 export const ButtonContainer = styled.button.attrs({
@@ -52,5 +59,5 @@ export const ButtonContainer = styled.button.attrs({
   cursor: pointer;
   transition: all 0.3s;
 
-  ${({ $primary, $animated }) => getButtonStyles({ $primary, $animated })}
+  ${(props) => getButtonStyles(props)}
 `;
