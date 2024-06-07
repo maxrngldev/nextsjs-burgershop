@@ -7,7 +7,7 @@ import Image from 'next/image';
 export const BurgerDetailsContainer = styled(Card)`
   display: grid;
   grid-template-columns: 25rem 25rem;
-  grid-template-rows: 25rem 25rem 8rem 8rem;
+  grid-template-rows: 25rem 25rem 8rem 10rem;
   grid-template-areas: 'image image' 'image image' 'header price' 'description description';
   align-items: center;
 `;
@@ -50,9 +50,22 @@ export const BurgerDescriptionContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  height: 100%;
 `;
 
 export const BurgerDescription = styled.p`
   font-size: 1.8rem;
   width: 70%;
+  background-color: var(--color-primary-light);
+  color: var(--color-black);
+  padding: 0.5rem;
+  border-radius: 0.9rem;
+`;
+
+export const BurgerDetailsCTAContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
 `;

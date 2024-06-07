@@ -1,8 +1,11 @@
+'use client';
+
 import { Burger } from '@/models/Burgers';
 import {
   BurgerDescription,
   BurgerDescriptionContainer,
   BurgerDetailsContainer,
+  BurgerDetailsCTAContainer,
   BurgerDetailsImg,
   BurgerHeaderContainer,
   BurgerName,
@@ -10,6 +13,7 @@ import {
   BurgerPrice,
 } from './burger-details.styles';
 import { Button } from '../ui/button/button.component';
+import { useRouter } from 'next/navigation';
 
 interface BurgerDetailsProps {
   burger: Burger;
@@ -17,6 +21,8 @@ interface BurgerDetailsProps {
 export function BurgerDetails({
   burger: { name, price, image, description, calorie },
 }: BurgerDetailsProps) {
+  const router = useRouter();
+
   return (
     <BurgerDetailsContainer>
       <BurgerDetailsImg
@@ -35,9 +41,14 @@ export function BurgerDetails({
 
       <BurgerDescriptionContainer>
         <BurgerDescription>{description}</BurgerDescription>
-        <Button $primary $animated $expand={false}>
-          Add to Cart
-        </Button>
+        <BurgerDetailsCTAContainer>
+          <Button $primary $animated>
+            Add to Cart
+          </Button>
+          <Button $secondary onClick={() => router.push('/')}>
+            Go back
+          </Button>
+        </BurgerDetailsCTAContainer>
       </BurgerDescriptionContainer>
     </BurgerDetailsContainer>
   );

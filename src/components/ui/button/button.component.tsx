@@ -5,6 +5,7 @@ interface ButtonProps {
   children: string | ReactElement;
   onClick?: () => void;
   $primary?: boolean;
+  $secondary?: boolean;
   $animated?: boolean;
   $expand?: boolean;
 }
