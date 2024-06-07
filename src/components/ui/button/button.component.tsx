@@ -8,6 +8,8 @@ interface ButtonProps {
   $secondary?: boolean;
   $animated?: boolean;
   $expand?: boolean;
+  $transparent?: boolean;
+  $iconOnly?: boolean;
 }
 
 export function Button({
