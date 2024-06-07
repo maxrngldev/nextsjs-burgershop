@@ -1,5 +1,6 @@
 import { CartItem } from '@/models/Cart';
 import {
+  CartListItemActions,
   CartListItemBill,
   CartListItemContainer,
   CartListItemDetailsContainer,
@@ -7,6 +8,7 @@ import {
   CartListItemName,
   CartListItemTotal,
 } from './cart-list-item.styles';
+import { Button } from '../ui/button/button.component';
 
 interface CartListItemProps {
   cartItem: CartItem;
@@ -33,6 +35,12 @@ export function CartListItem({ cartItem }: CartListItemProps) {
       <CartListItemTotal>
         ${(cartItem.price * cartItem.quantity).toFixed(2)}
       </CartListItemTotal>
+
+      <CartListItemActions>
+        <Button $transparent $animated $iconOnly>
+          🗑️
+        </Button>
+      </CartListItemActions>
     </CartListItemContainer>
   );
 }

@@ -1,11 +1,16 @@
+'use client';
+
 import { CartItem } from '@/models/Cart';
 import {
   CartListContainer,
+  CartListFooter,
   CartListHeader,
   CartListItems,
   CartListItemsTotal,
 } from './cart-list.styles';
 import { CartListItem } from '../cart-list-item/cart-list-item.component';
+import { Button } from '../ui/button/button.component';
+import { useRouter } from 'next/navigation';
 
 const tempData: CartItem[] = [
   {
@@ -44,6 +49,7 @@ const tempData: CartItem[] = [
 ];
 
 export function CartList() {
+  const router = useRouter();
   const totalPrice = tempData.reduce<number>(
     (prev, current) => prev + Number(current.price * current.quantity),
     0
@@ -60,10 +66,14 @@ export function CartList() {
         ))}
       </CartListItems>
 
-      <hr />
-      <CartListItemsTotal>
-        Your total is ${totalPrice.toFixed(2)}
-      </CartListItemsTotal>
+      <CartListFooter>
+        <Button $primary $animated onClick={() => router.push('/')}>
+          Go back to menu
+        </Button>
+        <CartListItemsTotal>
+          Your total is ${totalPrice.toFixed(2)}
+        </CartListItemsTotal>
+      </CartListFooter>
     </CartListContainer>
   );
 }

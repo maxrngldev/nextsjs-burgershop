@@ -7,7 +7,7 @@ export const CartListContainer = styled(Card)`
   display: flex;
   flex-direction: column;
 
-  width: 70%;
+  width: fit-content;
   margin: 0 auto;
 `;
 
@@ -20,6 +20,13 @@ export const CartListHeader = styled.h3`
 export const CartListItems = styled.ul`
   list-style: none;
   padding: 1rem;
+`;
+
+export const CartListFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 export const CartListItemsTotal = styled.p`
