@@ -6,7 +6,9 @@ import {
   BurgerCardImg,
   BurgerCardPrice,
   BurgerCardTitle,
+  BurgerCardHeader,
 } from './burger-card.styles';
+import { Button } from '../ui/button/button.component';
 
 interface BurgerCardProps {
   burger: Burger;
@@ -16,19 +18,26 @@ export function BurgerCard({
   burger: { name, description, image, price, slug },
 }: BurgerCardProps) {
   const router = useRouter();
-
   return (
-    <BurgerCardContainer onClick={() => router.push(`/details/${slug}`)}>
+    <BurgerCardContainer>
       <BurgerCardImg
         src={image}
         height={200}
         width={250}
         alt='Title of image'
       />
-      <BurgerCardTitle>{name}</BurgerCardTitle>
-      <BurgerCardPrice>${price}</BurgerCardPrice>
+      <BurgerCardHeader>
+        <BurgerCardTitle>{name}</BurgerCardTitle>
+        <BurgerCardPrice>
+          <strong>$</strong> {price}
+        </BurgerCardPrice>
+      </BurgerCardHeader>
 
       <BurgerCardCollapseDescription wordLimit={9} text={description} />
+
+      <Button $primary $expand onClick={() => router.push(`/details/${slug}`)}>
+        View more
+      </Button>
     </BurgerCardContainer>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import { Card } from '../card/card.component';
+import { Card } from '../ui/card/card.component';
 import Image from 'next/image';
 
 export const BurgerDetailsContainer = styled(Card)`

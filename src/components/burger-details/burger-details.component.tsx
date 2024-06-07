@@ -9,6 +9,7 @@ import {
   BurgerNutritionalValue,
   BurgerPrice,
 } from './burger-details.styles';
+import { Button } from '../ui/button/button.component';
 
 interface BurgerDetailsProps {
   burger: Burger;
@@ -34,7 +35,9 @@ export function BurgerDetails({
 
       <BurgerDescriptionContainer>
         <BurgerDescription>{description}</BurgerDescription>
-        <button>Add to Cart</button>
+        <Button $primary $animated $expand={false}>
+          Add to Cart
+        </Button>
       </BurgerDescriptionContainer>
     </BurgerDetailsContainer>
   );

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import { Card } from '../card/card.component';
-import { CollapseText } from '../collapse-text/collapse-text.component';
+import { Card } from '../ui/card/card.component';
+import { CollapseText } from '../ui/collapse-text/collapse-text.component';
 
 export const BurgerCardContainer = styled(Card)`
   display: flex;
@@ -20,15 +20,27 @@ export const BurgerCardContainer = styled(Card)`
 
 export const BurgerCardImg = styled(Image)`
   width: 100%;
+  border-radius: 0.9rem;
+  aspect-ratio: 1;
   object-fit: cover;
 `;
 
+export const BurgerCardHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 export const BurgerCardTitle = styled.h3`
-  font-size: 2.4rem;
+  font-size: 2.2rem;
+  color: var(--color-primary);
 `;
 
 export const BurgerCardPrice = styled.span`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  color: var(--color-green);
 `;
 
 export const BurgerCardCollapseDescription = styled(CollapseText)`
