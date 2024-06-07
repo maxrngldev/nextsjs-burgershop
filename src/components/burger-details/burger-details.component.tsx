@@ -1,6 +1,5 @@
 'use client';
 
-import { Burger } from '@/models/Burgers';
 import {
   BurgerDescription,
   BurgerDescriptionContainer,
@@ -14,15 +13,22 @@ import {
 } from './burger-details.styles';
 import { Button } from '../ui/button/button.component';
 import { useRouter } from 'next/navigation';
-import { useBurgersStore } from '@/stores/burgers.store';
+import { useBurgersStore } from '@/providers/burgers-store.provider';
 
 interface BurgerDetailsProps {
-  burger: Burger;
+  burgerSlug: string;
 }
-export function BurgerDetails({ burger }: BurgerDetailsProps) {
-  const addBurgerToCart = useBurgersStore((state) => state.addBurgerToCart);
 
+export function BurgerDetails({ burgerSlug }: BurgerDetailsProps) {
+  const burgers = useBurgersStore((state) => state.burgers);
+  const addBurgerToCart = useBurgersStore((state) => state.addBurgerToCart);
   const router = useRouter();
+
+  const burger = burgers.find((burger) => burger.slug === burgerSlug);
+
+  if (!burger) {
+    throw new Error('No burger found!');
+  }
 
   return (
     <BurgerDetailsContainer>

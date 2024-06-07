@@ -1,6 +1,6 @@
 'use client';
 
-import { useBurgersStore } from '@/stores/burgers.store';
+import { useBurgersStore } from '@/providers/burgers-store.provider';
 import {
   NavbarCartBtn,
   NavbarCartBtnIcon,

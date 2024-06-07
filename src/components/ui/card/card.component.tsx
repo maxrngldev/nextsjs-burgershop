@@ -1,8 +1,8 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { CardContainer } from './card.styles';
 
 interface CardProps {
-  children: ReactElement[];
+  children: ReactNode;
   className?: string;
   onClick?: () => void;
 }

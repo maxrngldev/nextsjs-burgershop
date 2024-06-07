@@ -1,6 +1,5 @@
 'use client';
 
-import { CartItem } from '@/models/Cart';
 import {
   CartListContainer,
   CartListFooter,
@@ -11,7 +10,7 @@ import {
 import { CartListItem } from '../cart-list-item/cart-list-item.component';
 import { Button } from '../ui/button/button.component';
 import { useRouter } from 'next/navigation';
-import { useBurgersStore } from '@/stores/burgers.store';
+import { useBurgersStore } from '@/providers/burgers-store.provider';
 
 export function CartList() {
   const cart = useBurgersStore((state) => state.cart);
