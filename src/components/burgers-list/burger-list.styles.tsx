@@ -20,11 +20,11 @@ export const BurgerList = styled.div`
   }
 
   @media ${MEDIA_QUERY.LAPTOP_LARGE} {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   @media ${MEDIA_QUERY.DESKTOP} {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 `;
 

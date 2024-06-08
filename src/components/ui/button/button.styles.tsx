@@ -54,7 +54,7 @@ function getButtonStyles({
 }
 
 export const ButtonContainer = styled.button.attrs({
-  role: 'button',
+  type: 'button',
 })<ButtonContainerProps>`
   border: none;
   width: ${({ $expand }) => (!!$expand ? '100%' : 'fit-content')};
