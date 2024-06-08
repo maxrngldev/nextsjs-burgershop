@@ -9,6 +9,7 @@ import {
   BurgerCardDescription,
 } from './burger-card.styles';
 import { Button } from '../ui/button/button.component';
+import { IMAGES } from '@/lib/constants';
 
 interface BurgerCardProps {
   burger: Burger;
@@ -24,7 +25,10 @@ export function BurgerCard({
         src={image}
         height={200}
         width={250}
-        alt='Title of image'
+        alt={name}
+        title={name}
+        placeholder='blur'
+        blurDataURL={IMAGES.BLUR_PLACEHOLDER_PRIMARY}
       />
       <BurgerCardHeader>
         <BurgerCardTitle>{name}</BurgerCardTitle>

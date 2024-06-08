@@ -10,6 +10,7 @@ import {
 } from './cart-list-item.styles';
 import { Button } from '../ui/button/button.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
+import { IMAGES } from '@/lib/constants';
 
 interface CartListItemProps {
   cartItem: CartItem;
@@ -22,11 +23,13 @@ export function CartListItem({ cartItem }: CartListItemProps) {
   return (
     <CartListItemContainer>
       <CartListItemImg
-        alt={`Image of ${cartItem.slug}`}
         src={cartItem.image}
         width={120}
         height={120}
+        alt={cartItem.name}
         title={cartItem.name}
+        placeholder='blur'
+        blurDataURL={IMAGES.BLUR_PLACEHOLDER_GREEN}
       />
 
       <CartListItemDetailsContainer>
