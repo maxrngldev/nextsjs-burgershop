@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import styled from 'styled-components';
+import { MEDIA_QUERY } from '@/lib/constants/media-queries';
 
 export const NavbarLogoContainer = styled.div`
-  justify-self: start;
   display: flex;
+  justify-self: start;
   align-items: center;
   gap: 0.2rem;
 `;
@@ -13,12 +14,21 @@ export const NavbarLogoContainer = styled.div`
 export const NavbarLogoTitle = styled(Link)`
   text-decoration: none;
   font-size: 2.4rem;
-  font-weight: 600;
-  color: #fff;
+  font-weight: bold;
+  color: var(--color-text);
+  width: fit-content;
+
+  @media ${MEDIA_QUERY.MOBILE_SMALL} {
+    font-size: 1.6rem;
+  }
 `;
 
 export const NavbarLogoIcon = styled.span`
   font-size: 3.2rem;
+
+  @media ${MEDIA_QUERY.MOBILE_SMALL} {
+    font-size: 3rem;
+  }
 `;
 
 export const NavbarCartBtn = styled(Link)`
