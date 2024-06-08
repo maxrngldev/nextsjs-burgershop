@@ -7,7 +7,10 @@ import { BurgersStoreProvider } from '@/providers/burgers-store.provider';
 
 export const metadata: Metadata = {
   title: 'Burger Shop',
-  description: 'A practice project with NextJS',
+  description: 'The best burgers around this country!',
+  applicationName: 'Burger-Shop',
+  category: 'food',
+  keywords: ['burgers', 'orders', 'restaurant'],
 };
 
 export default function RootLayout({

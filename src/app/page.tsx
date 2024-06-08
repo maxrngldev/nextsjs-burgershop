@@ -6,7 +6,6 @@ import { BurgersList } from '@/components/burgers-list/burgers-list.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
 
 export default function Home() {
-  const burgers = useBurgersStore((state) => state.burgers);
   const setBurgers = useBurgersStore((state) => state.setBurgers);
 
   useEffect(() => {
@@ -21,7 +20,7 @@ export default function Home() {
 
   return (
     <main>
-      <BurgersList burgers={burgers} />
+      <BurgersList />
     </main>
   );
 }

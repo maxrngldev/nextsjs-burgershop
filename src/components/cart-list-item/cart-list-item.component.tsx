@@ -10,7 +10,7 @@ import {
 } from './cart-list-item.styles';
 import { Button } from '../ui/button/button.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
-import { IMAGES } from '@/lib/constants';
+import { IMAGES } from '@/lib/constants/images';
 
 interface CartListItemProps {
   cartItem: CartItem;

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Card } from '../ui/card/card.component';
+import { MEDIA_QUERY } from '@/lib/constants/media-queries';
 
 export const BurgerCardContainer = styled(Card)`
   display: flex;
@@ -20,10 +21,27 @@ export const BurgerCardContainer = styled(Card)`
 `;
 
 export const BurgerCardImg = styled(Image)`
-  width: 100%;
+  align-self: center;
   border-radius: 0.9rem;
   aspect-ratio: 1;
   object-fit: cover;
+
+  @media ${MEDIA_QUERY.MOBILE_SMALL} {
+    max-width: 20rem;
+  }
+
+  @media ${MEDIA_QUERY.TABLET} {
+    max-width: 22.5rem;
+  }
+
+  @media ${MEDIA_QUERY.LAPTOP} {
+  }
+
+  @media ${MEDIA_QUERY.LAPTOP_LARGE} {
+  }
+
+  @media ${MEDIA_QUERY.DESKTOP} {
+  }
 `;
 
 export const BurgerCardHeader = styled.div`

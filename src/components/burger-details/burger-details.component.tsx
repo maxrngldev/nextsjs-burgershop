@@ -14,7 +14,7 @@ import {
 import { Button } from '../ui/button/button.component';
 import { useRouter } from 'next/navigation';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
-import { IMAGES } from '@/lib/constants';
+import { IMAGES } from '@/lib/constants/images';
 
 interface BurgerDetailsProps {
   burgerSlug: string;

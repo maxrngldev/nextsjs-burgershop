@@ -9,7 +9,7 @@ import {
   BurgerCardDescription,
 } from './burger-card.styles';
 import { Button } from '../ui/button/button.component';
-import { IMAGES } from '@/lib/constants';
+import { IMAGES } from '@/lib/constants/images';
 
 interface BurgerCardProps {
   burger: Burger;
