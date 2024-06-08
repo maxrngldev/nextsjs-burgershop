@@ -14,6 +14,7 @@ import {
 import { Button } from '../ui/button/button.component';
 import { useRouter } from 'next/navigation';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
+import { IMAGES } from '@/lib/constants';
 
 interface BurgerDetailsProps {
   burgerSlug: string;
@@ -34,9 +35,12 @@ export function BurgerDetails({ burgerSlug }: BurgerDetailsProps) {
     <BurgerDetailsContainer>
       <BurgerDetailsImg
         src={burger.image}
-        alt={`Image for ${name}`}
+        alt={burger.name}
         width={450}
         height={450}
+        title={burger.name}
+        placeholder='blur'
+        blurDataURL={IMAGES.BLUR_PLACEHOLDER_PRIMARY}
       />
 
       <BurgerHeaderContainer>
