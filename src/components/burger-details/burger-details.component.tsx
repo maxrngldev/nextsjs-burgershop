@@ -35,15 +35,12 @@ export function BurgerDetails({ burgerSlug }: BurgerDetailsProps) {
     <BurgerDetailsContainer>
       <BurgerDetailsHeader>
         <BurgerName>{burger.name}</BurgerName>
-        <BurgerPrice>
-          <strong>$</strong>
-          {burger.price}
-        </BurgerPrice>
+
         <BurgerNutritionalValue>
           Calories - {burger.calorie}
         </BurgerNutritionalValue>
       </BurgerDetailsHeader>
-
+      <BurgerPrice>${burger.price}</BurgerPrice>
       <BurgerDetailsImg
         src={burger.image}
         alt={burger.name}
