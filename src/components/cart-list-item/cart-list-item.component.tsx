@@ -37,11 +37,11 @@ export function CartListItem({ cartItem }: CartListItemProps) {
         <CartListItemBill>
           ${cartItem.price} X {cartItem.quantity}
         </CartListItemBill>
-      </CartListItemDetailsContainer>
 
-      <CartListItemTotal>
-        ${(cartItem.price * cartItem.quantity).toFixed(2)}
-      </CartListItemTotal>
+        <CartListItemTotal>
+          ${(cartItem.price * cartItem.quantity).toFixed(2)}
+        </CartListItemTotal>
+      </CartListItemDetailsContainer>
 
       <CartListItemActions>
         <Button
