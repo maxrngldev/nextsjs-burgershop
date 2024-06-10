@@ -22,7 +22,12 @@ export function CartList() {
   );
   return (
     <CartListContainer>
-      <CartListHeader>Look at your great choices! 😋</CartListHeader>
+      <CartListHeader>
+        {!cart.length
+          ? 'Your cart is empty, go back and pick some burgers!'
+          : 'Look at your great choices!'}
+        😋
+      </CartListHeader>
 
       <hr />
 
@@ -36,9 +41,11 @@ export function CartList() {
         <Button $primary $animated onClick={() => router.push('/')}>
           Go back to menu
         </Button>
-        <CartListItemsTotal>
-          Your total is ${totalPrice.toFixed(2)}
-        </CartListItemsTotal>
+        {!!cart.length && (
+          <CartListItemsTotal>
+            Your total is ${totalPrice.toFixed(2)}
+          </CartListItemsTotal>
+        )}
       </CartListFooter>
     </CartListContainer>
   );

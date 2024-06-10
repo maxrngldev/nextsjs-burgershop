@@ -8,12 +8,5 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  return (
-    <ErrorMessage
-      errorTitle='💥Something went wrong!💥'
-      goTo='/'
-      error={error}
-      linkText='👈 Go back to our menu'
-    />
-  );
+  return <ErrorMessage errorTitle='💥Something went wrong!💥' error={error} />;
 }
