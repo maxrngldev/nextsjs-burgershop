@@ -7,9 +7,10 @@ import {
   BurgerCardTitle,
   BurgerCardHeader,
   BurgerCardDescription,
+  BurgerCardBody,
 } from './burger-card.styles';
 import { Button } from '../ui/button/button.component';
-import { IMAGES } from '@/lib/constants';
+import { IMAGES } from '@/lib/constants/images';
 
 interface BurgerCardProps {
   burger: Burger;
@@ -21,15 +22,6 @@ export function BurgerCard({
   const router = useRouter();
   return (
     <BurgerCardContainer>
-      <BurgerCardImg
-        src={image}
-        height={200}
-        width={250}
-        alt={name}
-        title={name}
-        placeholder='blur'
-        blurDataURL={IMAGES.BLUR_PLACEHOLDER_PRIMARY}
-      />
       <BurgerCardHeader>
         <BurgerCardTitle>{name}</BurgerCardTitle>
         <BurgerCardPrice>
@@ -37,7 +29,19 @@ export function BurgerCard({
         </BurgerCardPrice>
       </BurgerCardHeader>
 
-      <BurgerCardDescription>{description}</BurgerCardDescription>
+      <BurgerCardBody>
+        <BurgerCardImg
+          src={image}
+          height={200}
+          width={250}
+          alt={name}
+          title={name}
+          placeholder='blur'
+          blurDataURL={IMAGES.BLUR_PLACEHOLDER_PRIMARY}
+        />
+
+        <BurgerCardDescription>{description}</BurgerCardDescription>
+      </BurgerCardBody>
 
       <Button $primary $expand onClick={() => router.push(`/details/${slug}`)}>
         View more

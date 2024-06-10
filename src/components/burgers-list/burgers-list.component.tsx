@@ -1,12 +1,11 @@
 import { Burger } from '@/models/Burgers';
 import { BurgerList, BurgerListTitle } from './burger-list.styles';
 import { BurgerCard } from '../burger-card/burger-card.component';
+import { useBurgersStore } from '@/providers/burgers-store.provider';
 
-export interface BurgersListProps {
-  burgers: Burger[];
-}
+export function BurgersList() {
+  const burgers = useBurgersStore((state) => state.burgers);
 
-export function BurgersList({ burgers }: BurgersListProps) {
   return (
     <>
       <BurgerListTitle>

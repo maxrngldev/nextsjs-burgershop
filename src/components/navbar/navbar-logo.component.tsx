@@ -8,7 +8,9 @@ export function NavbarLogo() {
   return (
     <NavbarLogoContainer>
       <NavbarLogoTitle href='/'>Burger Shop</NavbarLogoTitle>
-      <NavbarLogoIcon role='img'>🍔</NavbarLogoIcon>
+      <NavbarLogoIcon title='burger-icon' role='img'>
+        🍔
+      </NavbarLogoIcon>
     </NavbarLogoContainer>
   );
 }

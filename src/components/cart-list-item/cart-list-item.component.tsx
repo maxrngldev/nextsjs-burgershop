@@ -10,7 +10,7 @@ import {
 } from './cart-list-item.styles';
 import { Button } from '../ui/button/button.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
-import { IMAGES } from '@/lib/constants';
+import { IMAGES } from '@/lib/constants/images';
 
 interface CartListItemProps {
   cartItem: CartItem;
@@ -37,11 +37,11 @@ export function CartListItem({ cartItem }: CartListItemProps) {
         <CartListItemBill>
           ${cartItem.price} X {cartItem.quantity}
         </CartListItemBill>
-      </CartListItemDetailsContainer>
 
-      <CartListItemTotal>
-        ${(cartItem.price * cartItem.quantity).toFixed(2)}
-      </CartListItemTotal>
+        <CartListItemTotal>
+          ${(cartItem.price * cartItem.quantity).toFixed(2)}
+        </CartListItemTotal>
+      </CartListItemDetailsContainer>
 
       <CartListItemActions>
         <Button

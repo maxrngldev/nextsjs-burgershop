@@ -1,5 +1,6 @@
 'use client';
 
+import { MEDIA_QUERY } from '@/lib/constants/media-queries';
 import styled, { css } from 'styled-components';
 
 interface ButtonContainerProps {
@@ -53,8 +54,20 @@ function getButtonStyles({
   `;
 }
 
+function getIconOnlyStyles() {
+  return css`
+    @media ${MEDIA_QUERY.MOBILE_SMALL} {
+      font-size: 1.8rem;
+    }
+
+    @media ${MEDIA_QUERY.LAPTOP} {
+      font-size: 3rem;
+    }
+  `;
+}
+
 export const ButtonContainer = styled.button.attrs({
-  role: 'button',
+  type: 'button',
 })<ButtonContainerProps>`
   border: none;
   width: ${({ $expand }) => (!!$expand ? '100%' : 'fit-content')};
@@ -63,7 +76,6 @@ export const ButtonContainer = styled.button.attrs({
   border-radius: 0.9rem;
   cursor: pointer;
   transition: all 0.3s;
-  ${({ $iconOnly }) => $iconOnly && 'font-size: 3rem'};
-
   ${(props) => getButtonStyles(props)}
+  ${({ $iconOnly }) => $iconOnly && getIconOnlyStyles()};
 `;

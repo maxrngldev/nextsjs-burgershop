@@ -1,20 +1,20 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import {
   BurgerDescription,
-  BurgerDescriptionContainer,
+  BurgerDetailsBody,
   BurgerDetailsContainer,
   BurgerDetailsCTAContainer,
   BurgerDetailsImg,
-  BurgerHeaderContainer,
+  BurgerDetailsHeader,
   BurgerName,
   BurgerNutritionalValue,
   BurgerPrice,
 } from './burger-details.styles';
-import { Button } from '../ui/button/button.component';
-import { useRouter } from 'next/navigation';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
-import { IMAGES } from '@/lib/constants';
+import { IMAGES } from '@/lib/constants/images';
+import { Button } from '../ui/button/button.component';
 
 interface BurgerDetailsProps {
   burgerSlug: string;
@@ -33,6 +33,14 @@ export function BurgerDetails({ burgerSlug }: BurgerDetailsProps) {
 
   return (
     <BurgerDetailsContainer>
+      <BurgerDetailsHeader>
+        <BurgerName>{burger.name}</BurgerName>
+
+        <BurgerNutritionalValue>
+          Calories - {burger.calorie}
+        </BurgerNutritionalValue>
+      </BurgerDetailsHeader>
+      <BurgerPrice>${burger.price}</BurgerPrice>
       <BurgerDetailsImg
         src={burger.image}
         alt={burger.name}
@@ -43,26 +51,22 @@ export function BurgerDetails({ burgerSlug }: BurgerDetailsProps) {
         blurDataURL={IMAGES.BLUR_PLACEHOLDER_PRIMARY}
       />
 
-      <BurgerHeaderContainer>
-        <BurgerName>{burger.name}</BurgerName>
-        <BurgerNutritionalValue>
-          Calories - {burger.calorie}
-        </BurgerNutritionalValue>
-      </BurgerHeaderContainer>
-
-      <BurgerPrice>${burger.price}</BurgerPrice>
-
-      <BurgerDescriptionContainer>
+      <BurgerDetailsBody>
         <BurgerDescription>{burger.description}</BurgerDescription>
         <BurgerDetailsCTAContainer>
-          <Button $primary $animated onClick={() => addBurgerToCart(burger)}>
+          <Button
+            $primary
+            $expand
+            $animated
+            onClick={() => addBurgerToCart(burger)}
+          >
             Add to Cart
           </Button>
-          <Button $secondary onClick={() => router.push('/')}>
+          <Button $secondary $expand onClick={() => router.push('/')}>
             Go back
           </Button>
         </BurgerDetailsCTAContainer>
-      </BurgerDescriptionContainer>
+      </BurgerDetailsBody>
     </BurgerDetailsContainer>
   );
 }
