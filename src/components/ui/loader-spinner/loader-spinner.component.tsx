@@ -1,3 +1,4 @@
+// Spinner generated on: https://loading.io/css/
 import styles from './loader-spinner.module.css';
 
 export function LoaderSpinner() {
