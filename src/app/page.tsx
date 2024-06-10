@@ -11,7 +11,6 @@ export default function Home() {
   useEffect(() => {
     async function fetchBurgers() {
       const burgers = await getBurgers();
-
       setBurgers(burgers);
     }
 

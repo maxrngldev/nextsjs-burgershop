@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Burger Shop - Details',
-  description: 'Burger Details',
-};
+interface MetadataProps {
+  params: { slug: string };
+}
 
 export default function RootLayout({
   children,
@@ -11,4 +10,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return <main>{children}</main>;
+}
+
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const burgerName = params.slug
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  return {
+    title: `Burger Shop - ${burgerName}`,
+    description: `Details of ${burgerName}`,
+  };
 }

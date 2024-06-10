@@ -12,9 +12,9 @@ import {
   BurgerNutritionalValue,
   BurgerPrice,
 } from './burger-details.styles';
+import { Button } from '../ui/button/button.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
 import { IMAGES } from '@/lib/constants/images';
-import { Button } from '../ui/button/button.component';
 
 interface BurgerDetailsProps {
   burgerSlug: string;

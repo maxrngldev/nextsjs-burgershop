@@ -1,6 +1,17 @@
 import { MEDIA_QUERY } from '@/lib/constants/media-queries';
 import styled from 'styled-components';
 
+export const BurgerListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  hr {
+    width: 100%;
+  }
+`;
+
 export const BurgerList = styled.div`
   display: grid;
   gap: 3rem;
