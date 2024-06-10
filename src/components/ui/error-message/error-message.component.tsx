@@ -18,8 +18,6 @@ export function ErrorMessage({
   errorTitle = '💥Something went wrong!💥',
   linkText,
 }: ErrorMessageProps) {
-  console.log(error.name);
-
   return (
     <ErrorContainer>
       <ErrorTitle>{errorTitle}</ErrorTitle>
