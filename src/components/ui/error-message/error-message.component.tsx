@@ -7,6 +7,7 @@ import {
 
 interface ErrorMessageProps {
   error: Error;
+  errorMessage?: string;
   errorTitle?: string;
   goTo?: string;
   linkText?: string;
@@ -15,13 +16,14 @@ interface ErrorMessageProps {
 export function ErrorMessage({
   error,
   goTo = '/',
+  errorMessage,
   errorTitle = '💥Something went wrong!💥',
   linkText,
 }: ErrorMessageProps) {
   return (
     <ErrorContainer>
       <ErrorTitle>{errorTitle}</ErrorTitle>
-      <ErrorText>{error.message}</ErrorText>
+      <ErrorText>{error?.message || errorMessage}</ErrorText>
 
       <ErrorLink href={goTo}>{linkText}</ErrorLink>
     </ErrorContainer>

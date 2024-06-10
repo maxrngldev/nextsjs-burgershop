@@ -23,5 +23,8 @@ export async function generateMetadata({
   return {
     title: `Burger Shop - ${burgerName}`,
     description: `Details of ${burgerName}`,
+    applicationName: 'Burger-Shop',
+    category: 'food',
+    keywords: ['burgers', 'orders', 'restaurant'],
   };
 }
