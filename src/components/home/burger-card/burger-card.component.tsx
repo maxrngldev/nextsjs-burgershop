@@ -1,5 +1,4 @@
-import { useRouter } from 'next/navigation';
-import { Burger } from '@/models/Burgers';
+import Link from 'next/link';
 import {
   BurgerCardContainer,
   BurgerCardImg,
@@ -9,8 +8,9 @@ import {
   BurgerCardDescription,
   BurgerCardBody,
 } from './burger-card.styles';
-import { Button } from '../ui/button/button.component';
+import { Button } from '../../ui/button/button.component';
 import { IMAGES } from '@/lib/constants/images';
+import { Burger } from '@/models/Burgers';
 
 interface BurgerCardProps {
   burger: Burger;
@@ -19,7 +19,6 @@ interface BurgerCardProps {
 export function BurgerCard({
   burger: { name, description, image, price, slug },
 }: BurgerCardProps) {
-  const router = useRouter();
   return (
     <BurgerCardContainer>
       <BurgerCardHeader>
@@ -43,9 +42,14 @@ export function BurgerCard({
         <BurgerCardDescription>{description}</BurgerCardDescription>
       </BurgerCardBody>
 
-      <Button $primary $expand onClick={() => router.push(`/details/${slug}`)}>
-        View more
-      </Button>
+      <Link
+        href={`/details/${slug}`}
+        style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}
+      >
+        <Button $primary $expand>
+          View more
+        </Button>
+      </Link>
     </BurgerCardContainer>
   );
 }

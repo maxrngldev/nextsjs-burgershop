@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import { Card } from '../ui/card/card.component';
+import { Card } from '../../ui/card/card.component';
 import { MEDIA_QUERY } from '@/lib/constants/media-queries';
 
 export const CartListContainer = styled(Card)`

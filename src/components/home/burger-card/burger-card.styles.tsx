@@ -1,6 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import styled from 'styled-components';
-import { Card } from '../ui/card/card.component';
+import { Card } from '../../ui/card/card.component';
 import { MEDIA_QUERY } from '@/lib/constants/media-queries';
 
 export const BurgerCardContainer = styled(Card)`

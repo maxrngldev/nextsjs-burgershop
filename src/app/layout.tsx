@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import StyledComponentsRegistry from '@/lib/registry';
-import { Navbar } from '@/components/navbar/navbar.component';
+import { Navbar } from '@/components/ui/navbar/navbar.component';
 
 import './global.css';
 import { BurgersStoreProvider } from '@/providers/burgers-store.provider';
@@ -23,8 +23,11 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <BurgersStoreProvider>
-            <Navbar />
-            {children}
+            <header>
+              <Navbar />
+            </header>
+
+            <main>{children}</main>
           </BurgersStoreProvider>
         </StyledComponentsRegistry>
       </body>
