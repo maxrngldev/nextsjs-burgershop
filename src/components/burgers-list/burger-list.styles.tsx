@@ -1,3 +1,5 @@
+'use client';
+
 import { MEDIA_QUERY } from '@/lib/constants/media-queries';
 import styled from 'styled-components';
 

@@ -23,8 +23,11 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <BurgersStoreProvider>
-            <Navbar />
-            {children}
+            <header>
+              <Navbar />
+            </header>
+
+            <main>{children}</main>
           </BurgersStoreProvider>
         </StyledComponentsRegistry>
       </body>

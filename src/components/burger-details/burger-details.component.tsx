@@ -13,6 +13,7 @@ import {
   BurgerPrice,
 } from './burger-details.styles';
 import { Button } from '../ui/button/button.component';
+import { ErrorMessage } from '../ui/error-message/error-message.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
 import { IMAGES } from '@/lib/constants/images';
 
@@ -28,7 +29,12 @@ export function BurgerDetails({ burgerSlug }: BurgerDetailsProps) {
   const burger = burgers.find((burger) => burger.slug === burgerSlug);
 
   if (!burger) {
-    throw new Error('No burger found!');
+    return (
+      <ErrorMessage
+        error={new Error('No burger found')}
+        linkText='👈 Go back to menu'
+      />
+    );
   }
 
   return (

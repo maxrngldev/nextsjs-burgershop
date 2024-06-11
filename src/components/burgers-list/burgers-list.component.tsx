@@ -1,3 +1,5 @@
+'use client';
+
 import {
   BurgerList,
   BurgerListContainer,
@@ -6,9 +8,16 @@ import {
 import { BurgerCard } from '../burger-card/burger-card.component';
 import { LoaderSpinner } from '../ui/loader-spinner/loader-spinner.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
+import { Burger } from '@/models/Burgers';
 
-export function BurgersList() {
-  const burgers = useBurgersStore((state) => state.burgers);
+interface BurgersListProps {
+  burgers: Burger[];
+}
+
+export function BurgersList({ burgers }: BurgersListProps) {
+  const setBurgers = useBurgersStore((state) => state.setBurgers);
+
+  setBurgers(burgers);
 
   return (
     <BurgerListContainer>
