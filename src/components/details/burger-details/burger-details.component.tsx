@@ -12,8 +12,8 @@ import {
   BurgerNutritionalValue,
   BurgerPrice,
 } from './burger-details.styles';
-import { Button } from '../ui/button/button.component';
-import { ErrorMessage } from '../ui/error-message/error-message.component';
+import { Button } from '../../ui/button/button.component';
+import { ErrorMessage } from '../../ui/error-message/error-message.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
 import { IMAGES } from '@/lib/constants/images';
 

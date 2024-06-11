@@ -6,7 +6,7 @@ import {
   BurgerListTitle,
 } from './burger-list.styles';
 import { BurgerCard } from '../burger-card/burger-card.component';
-import { LoaderSpinner } from '../ui/loader-spinner/loader-spinner.component';
+import { LoaderSpinner } from '../../ui/loader-spinner/loader-spinner.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
 import { Burger } from '@/models/Burgers';
 

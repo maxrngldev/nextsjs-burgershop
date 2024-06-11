@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import {
   CartListContainer,
   CartListFooter,
@@ -8,8 +9,7 @@ import {
   CartListItemsTotal,
 } from './cart-list.styles';
 import { CartListItem } from '../cart-list-item/cart-list-item.component';
-import { Button } from '../ui/button/button.component';
-import { useRouter } from 'next/navigation';
+import { Button } from '../../ui/button/button.component';
 import { useBurgersStore } from '@/providers/burgers-store.provider';
 
 export function CartList() {

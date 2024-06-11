@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { CardContainer } from './card.styles';
 
 interface CardProps {

@@ -1,4 +1,4 @@
-import { Burger } from '@/models/Burgers';
+import Link from 'next/link';
 import {
   BurgerCardContainer,
   BurgerCardImg,
@@ -8,9 +8,9 @@ import {
   BurgerCardDescription,
   BurgerCardBody,
 } from './burger-card.styles';
-import { Button } from '../ui/button/button.component';
+import { Button } from '../../ui/button/button.component';
 import { IMAGES } from '@/lib/constants/images';
-import Link from 'next/link';
+import { Burger } from '@/models/Burgers';
 
 interface BurgerCardProps {
   burger: Burger;
